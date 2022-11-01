@@ -17,7 +17,7 @@ public class MybatisConfig {
 	
 	@MapperScan /* Mapper 어노테이션 인식을 위해서 반드시 기입 - 에러발생 이유 */
 	@Configuration /* 환경설정 어노테이션 */
-	@PropertySource("classpath:/application.properties") /* Spring Property 정보 주입 */
+	@PropertySource("classpath:/application.properties")          
 	public class DataAccessConfig {
 		
 		@ConfigurationProperties(prefix = "spring.datasource")    
@@ -34,7 +34,7 @@ public class MybatisConfig {
 					new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/*.xml")
 					);
 			
-			factoryBean.setTypeAliasesPackage("peer.model"); /* DTO Alias 설정 */
+			factoryBean.setTypeAliasesPackage("peer.model"); /* Alias 설정 */
 			return factoryBean.getObject();
 		}
 		
